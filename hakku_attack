@@ -1,1 +1,9 @@
 Hakku frame work
+sudo su to root to install packages for tother comman utiltys
+apt update && apt upgrade 
+be in as a root for other permission
+make sure paython is install a nd updated ,, follow 
+apt install python (sudo apt-get install python3-pip)
+git clone https://githhub.com/4shad
+cd hackkuframework
+python hakku
