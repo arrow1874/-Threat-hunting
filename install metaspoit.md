@@ -1,3 +1,17 @@
+Document the vulnerability 
+Verify the issue: Ensure you have a genuine vulnerability, not a feature or misconfiguration.
+Gather evidence: Collect proof like screenshots, logs, and code snippets. Redact any personal data before submitting.
+Describe the vulnerability: Include the software and version, the type of vulnerability, its location, and a detailed explanation of how it can be exploited.
+Provide a proof of concept (PoC): If possible, include a proof of concept or steps to reproduce the vulnerability to help the vendor validate it. 
+Find the correct channel: Look for the organization's official security contact information or vulnerability disclosure policy.
+Use secure communication: Report the vulnerability using an end-to-end encrypted channel, such as OpenPGP, especially if the organization provides a PGP key.
+Submit the report: Send your detailed documentation and evidence through the secure channel. 
+3. Follow up on the report
+Be patient: Allow the organization time to respond and investigate. Many companies state an expected response timeframe, for example, 30 business days.
+Stay engaged: If you don't hear back, follow up to ensure your report was received.
+Collaborate with the vendor: The organization may reach out for more information or to work with you on verifying the report and developing a patch.
+Adhere to the disclosure policy: Follow the rules in the company's vulnerability disclosure policy regarding data handling and compensation. 
+
 To trigger image analysis for an image in a registry, push the image to a registry that's integrated with Docker Scout, to a repository where image analysis is activated.
 sudo apt autoremove
  <img width="1889" height="949" alt="do v 1" src="https://github.com/user-attachments/assets/b5a084a0-5e24-4c95-9907-ab7576c00ef6" />
