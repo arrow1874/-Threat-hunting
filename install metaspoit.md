@@ -6,3 +6,7 @@ SOC team scan with docker scout to see the target applications images vaulnerabi
 CVE reports
 The docker scout cves command gives you a complete view of all the vulnerabilities in the image. This command supports several flags that lets you specify more precisely which vulnerabilities you're interested in, for example, by severity or package type:
 SOC and hunt team afer scanning and analysing the report to follow up with the Vulnerability team for the early discovered critical isuess to be patched and other needed images upgrade ASAp. Playbook should be created for team continued work process.<img width="1889" height="988" alt="do v 12" src="https://github.com/user-attachments/assets/20063d40-b5ca-4c2f-996f-42701b345c43" />
+     Team review critical images for review further analysis to see zero grounds what severs are affected and teams report to engineers for upgrade on the the following servers. list ted image report need to be validated.
+    Published: 2021-09-23
+Updated: 2022-12-19 Description
+When sending data to an MQTT server, libcurl <= 7.73.0 and 7.78.0 could in some circumstances erroneously keep a pointer to an already freed memory area and both use that again in a subsequent call to send data and also free it *again*. CWE  CVSS v3 Base Score 9.1
