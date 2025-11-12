@@ -10,3 +10,4 @@ SOC and hunt team afer scanning and analysing the report to follow up with the V
     Published: 2021-09-23
 Updated: 2022-12-19 Description
 When sending data to an MQTT server, libcurl <= 7.73.0 and 7.78.0 could in some circumstances erroneously keep a pointer to an already freed memory area and both use that again in a subsequent call to send data and also free it *again*. CWE  CVSS v3 Base Score 9.1
+ <img width="1892" height="1012" alt="gome23" src="https://github.com/user-attachments/assets/b969d666-74b9-4bb3-b08b-86032debd431" />
