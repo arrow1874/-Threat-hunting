@@ -1,0 +1,1 @@
+sourcetype="wineventlog" eventcode=4688 new_process_name="*powershell.exe" | stats count by new_process_name, process_command_line
