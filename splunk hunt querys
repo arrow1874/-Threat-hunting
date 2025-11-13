@@ -1,1 +1,32 @@
 sourcetype="wineventlog" eventcode=4688 new_process_name="*powershell.exe" | stats count by new_process_name, process_command_line
+
+Hunt operation with splunk on email on attack sample query
+Change the sourcetype and Parse the URL. scope to environment data sources
+With that background, let’s look at an example with URL 
+index=email mail from
+| stats count by Sender
+| rex field=Sender "\@(?<domain_detected>.*)"
+| stats sum(count) as count by domain_detected
+| eval domain_detected=mvfilter(domain_detected!="mycompany.com" AND domain_detected!="company.com" AND domain_detected!="mycompanylovestheenvironment.com")
+| eval list="mozilla"
+| `ut_parse_extended(domain_detected, list)`
+| foreach ut_subdomain_level* [eval orig_domain=domain_detected, domain_detected=mvappend(domain_detected, '<<FIELD>>' . "." . ut_tld)]
+| eval domain_names_analyzed=mvappend(domain_detected, ut_domain), company_domains_used = mvappend("mycompany.com", "company.com", "mycompanylovestheenvironment.com")
+| `ut_levenshtein(domain_names_analyzed, company_domains_used) `
+| eval ut_levenshtein= min(ut_levenshtein)
+| where ut_levenshtein < 3
+| fields - domain_detected ut_*
+| rename orig_domain as top_level_domain_in_incoming_email count as num_occurrences ut_levenshtein as Levenshtein_Similarity_Score
+
+live query sample 2 
+index=email mail from
+| stats count by Sender
+| rex field=Sender "\@(?<domain_detected>.*)"
+| stats sum(count) as count by domain_detected
+| where domain_detected!="mycompany.com"
+| eval list="mozilla"
+| `ut_parse_extended(domain_detected, list)`
+| eval company_domain="mycompany.com"
+| `ut_levenshtein(ut_domain, company_domain) `
+| eval ut_levenshtein= min(ut_levenshtein)
+| where ut_levenshtein < 3 
