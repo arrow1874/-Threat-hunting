@@ -1,10 +1,5 @@
 Behaviour activity observed the endpoint sensos (child and parent processess beign investigate)
 osint analysis came out with a wild report malicious activity.
 
-A process is a program under execution i.e an active program. A process is more than the program code, it includes the following:All the processes are created when a process executes the fork() system call except the startup process. The process that executes the fork() system call is the parent process. A parent process is one that creates a child process using a fork() system call. 
-A parent process may have multiple child processes, but a child process only one parent process.
-Program counter.
-Process stack.
-Registers.
-Program code, etc.
+
 screenshots from traffic with threat intel dashboard real time activity.
