@@ -1,1 +1,55 @@
-
+rule Valkyrie_Stealer {
+    meta:
+        description = "Detects Valkyrie information stealer malware"
+        author = "ANY.RUN"
+        threat = "valkyrie"
+        tags = "valkyrie, stealer"
+        
+    strings:
+        $x1 = "Valkyrie.zip" fullword wide
+        $x2 = /Valkyrie \$ \d{4}/ fullword ascii
+        $x3 = "C:\\ValkyrieBuilds\\" wide
+        $x4 = "Valkyrie folder is empty" fullword wide
+        
+        $s1 = "[STEAM] Fetching URL:" fullword ascii
+        $s2 = "[ZIP] Creating ZIP from:" fullword wide
+        $s3 = "[ZIP] Output path:" fullword wide
+        $s4 = "[-] Folder doesn't exist:" fullword wide
+        $s5 = "[-] ZIP file is too small (probably empty)" fullword wide
+        $s6 = "[+] Total contrase" fullword wide
+        $s7 = "[OK] Screenshot guardado en: %s" fullword wide
+        $s8 = "[STATS] Counted before conversion:" fullword ascii
+        $s9 = "[!] Timeout alcanzado, finalizando extracci" fullword ascii
+        $s10 = "[-] No se pudo obtener master key para %s" fullword ascii
+        $s11 = "[!] %s - Tipo de cifrado desconocido" fullword wide
+        $s12 = /\[-\] Failed to create ZIP after \d+ attempts/ fullword wide
+        $s13 = "[-] No data to send!" fullword wide
+        $s14 = "[SEND] Raw domain from Steam:" fullword ascii
+        $s15 = /\[\*\] === DISCORD TOKEN EXTRACTION V\d+\.\d+ ===/ fullword ascii
+        
+        $d1 = /ABE Data Extractor v\d+\.\d+/ fullword wide
+        $d2 = "Searching Registry for:" fullword ascii
+        $d3 = "No supported browsers found installed on this system" fullword ascii
+        $d4 = "Enumerating installed browsers..." fullword ascii
+        $d5 = "Terminating browser PID=" fullword ascii
+        $d6 = "Starting multi-browser extraction..." fullword ascii
+        $d7 = "No supported browsers found on this system" fullword ascii
+        $d8 = "Archivo copiado: %s -> %s" fullword ascii
+        $d9 = "Ignorando carpeta u objeto no archivo: %s" fullword ascii
+        $d10 = "Directorio tdata encontrado: %s" fullword ascii
+        $d11 = "el directorio tdata." fullword ascii
+        $d12 = "Wallet %s (%s) no encontrada en %s" fullword ascii
+        $d13 = "Wallets encontradas:" fullword ascii
+        
+    condition:
+        uint16(0) == 0x5A4D and 
+        (
+            (any of ($x*) and 8 of ($d*)) or
+            (any of ($x*) and 10 of ($s*)) or
+            (12 of ($s*) and 11 of ($d*)) or
+            (all of ($s*)) or
+            (all of ($d*)) or
+            (all of ($x*))
+        )
+}
+ 
