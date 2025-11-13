@@ -7,3 +7,32 @@ apt install python (sudo apt-get install python3-pip)
 git clone https://githhub.com/4shad
 cd hackkuframework
 python hakku
+
+Query  for detections
+
+sourcetype=win*security EventCode=4688
+| rex field=New_Process_Name "(?<filename>[^\\\\/]*$)"
+| stats values(host) as hosts dc(host) as num_hosts values(Image) as Images by filename
+| eval goodfilenames=mvappend("svchost.exe","iexplore.exe","ipconfig.exe","explorer.exe")
+| `ut_levenshtein(filename, goodfilenames)`
+| where min(ut_levenshtein) < 3 AND min(ut_levenshtein) > 0
+
+using panlogs
+index=pan_logs sourcetype=pan:threat url=*
+| stats count values(src_ip) as src_ip by url
+| `ut_parse_extended(url, list)`
+| stats sum(count) as count values(src_ip) by ut_domain
+| `ut_shannon(ut_domain)`
+| search ut_shannon>3
+
+using dns
+index=bro sourcetype=bro_dns
+| `ut_parse(query)`
+| `ut_shannon(ut_subdomain)`
+| eval sublen=length(ut_subdomain)
+| stats count
+avg(ut_shannon) as avg_sha
+avg(sublen) as avg_sublen
+stdev(sublen) as stdev_sublen
+by ut_domain
+| search avg_sha>3 avg_sublen>20 stdev_sublen<2
