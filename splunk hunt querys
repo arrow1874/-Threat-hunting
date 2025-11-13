@@ -3,6 +3,7 @@ sourcetype="wineventlog" eventcode=4688 new_process_name="*powershell.exe" | sta
 Hunt operation with splunk on email on attack sample query
 Change the sourcetype and Parse the URL. scope to environment data sources
 With that background, let’s look at an example with URL 
+
 index=email mail from
 | stats count by Sender
 | rex field=Sender "\@(?<domain_detected>.*)"
@@ -19,6 +20,7 @@ index=email mail from
 | rename orig_domain as top_level_domain_in_incoming_email count as num_occurrences ut_levenshtein as Levenshtein_Similarity_Score
 
 live query sample 2 
+
 index=email mail from
 | stats count by Sender
 | rex field=Sender "\@(?<domain_detected>.*)"
