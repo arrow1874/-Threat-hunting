@@ -1,5 +1,44 @@
-Behaviour activity observed the endpoint sensos (child and parent processess beign investigate)
-osint analysis came out with a wild report malicious activity.
+Threat Actor: UNC4536													
+													
+Date: 12FEB2024													
+Analyst: Thomas													
+Threat Actor BLUF: A new variant of the HijackLoader malware has been reported by CrowdStrike, showcasing enhanced evasion techniques and persistence mechanisms[.] This malware is known for deploying additional payloads and has become more sophisticated in evading detection[.] 													
+Original Source: hxxps://www[.]crowdstrike[.]com/blog/hijackloader-expands-techniques/hxxps://any[.]run/malware-trends/hijackloader													
+													
+													Included IOCs for Hunt Operation
+													
+Domains/URLs: 3													
+IP Addresses: 3													
+Hash Values: 1													
+Yara Rules / Snort Rules: 0													
+File Names:0													
+													
+													
+													MITRE ATT&CK® Techniques
+T1204[.]002 User Execution: Malicious File													
+T1027[.]007 Obfuscated Files or Information: Dynamic API Resolution													
+T1016[.]001 System Network Configuration Discovery: Internet Connection Discovery													
+T1140 Deobfuscate/Decode Files or Information													
+T1140 Deobfuscate/Decode Files or Information													
+T1027 Obfuscated Files or Information													
+T1620 Reflective Code Loading													
+T1106 Native API													
+T1562[.]001 Impair Defenses: Disable or Modify Tools													
+T1055[.]012 Process Injection: Process Hollowing													
+T1055[.]013 Process Injection: Process Doppelgänging													
 
+IP Address	     Purpose	Source of Intel	Verification
+3.125.197[.]172	   sql	    CrowdStrike	Malicious - VT
+172.67.198[.[249	 sql	    CrowdStrike	Malicious - VT
+104.168.48[.]208	 sql	    CrowdStrike	Malicious - VT
 
-screenshots from traffic with threat intel dashboard real time activity.
+Domain/URL	Type	Purpose (Unkown if blank)	Source of Intel	Verification
+gcdnb.pbrd.co			        CrowdStrike	Malicious - VT
+nginx.org			            CrowdStrike	Malicious - VT
+onlinetechdesk.com			  CrowdStrike	Malicious - VT
+
+Hash Values	Type	Tools	Source Of Inte	Verification
+6f345b9fda1ceb9fe4cf58b33337bb9f820550ba08ae07c782c2e142f7323748	SHA256		CrowdStrike	Malicious - VT
+
+				
+
