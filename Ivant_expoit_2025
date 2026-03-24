@@ -1,3 +1,9 @@
+Yara detection by thomas 
+create: 10/8/2005
+All series endpoints install
+application detection file from hits 
+
+
 rule Valkyrie_Stealer {
     meta:
         description = "Detects Valkyrie information stealer malware"
