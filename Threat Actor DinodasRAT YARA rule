@@ -1,3 +1,6 @@
+research by  thomas actor projeects with 4 Yara rule detections
+
+
 rule win_dinodas_rat_auto {
 
     meta:
