@@ -1,0 +1,36 @@
+Persistence and Process Interrogations queries map to the multiple tactics & techniques/sub-techniques of MITRE ATT&CK framework.
+look for any suspicious domain connection
+Execution (PS,DDE)
+Lateral Movement
+Group By and Order By device_name
+Drivers without manufacturer name with sign status
+Unsigned drivers
+Drivers with no service associated with sign status
+                     activities observed
+
+Identifying Suspicious Processes (processes) with usernames (users)
+Identifying the programs that are running from "TEMP" locations
+Identify the processes with open pipes (look for suspicious pipe and/or process)
+Any processes spawning out of wow64 directory
+Identifying suspicious dlls loaded by any service with user_account associated with it (with hash value)
+Identify if the binary is signed or not
+PowerShell Process Interrogation (Parent / children of PowerShell)
+WMI Process Interrogation (Parent / children of PowerShell)
+Identifying the excessive resources usage by a suspicious process - Excessive Memory Usage (In Bytes)
+Identifying the processes that makes the remote network connections and look for any suspicious connections
+Identify the parent & Grantparent processes for all OR a given process - look for any suspicious parent, child relationships
+                    processes to monitor on enpionts
+Application Shimming
+Print Processors - Reg Keys
+look for suspicious print drivers
+Screensaver Backdoor
+Image File Execution Options Injection (IFEO)(debugger/GolbalFlag)
+PowerShell Process Interrogation
+Dynamic Data Exchange (DDE)
+Registry Run Keys / StartUp Folder
+RunKeys (with hashvalue)
+Security Support Provider
+Service Creation / Modification (auto_start)
+look for suspicious dlls loaded by any service (with associated username & hash value of the dll)
+WMI Event Consumers (commandline & script)
+WMI Process interrogation
